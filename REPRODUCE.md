@@ -37,15 +37,15 @@ directory.
 
 ```bash
 cd GeoScout
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
 
-# Install the PyTorch wheel matching your CUDA setup first if needed.
-pip install -r requirements.txt
+uv python install 3.10
+uv sync --extra dev --extra caption --extra viz --extra cloud
+
+# Optional: override uv's default PyTorch wheel for your CUDA stack.
+uv pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
 
 # Optional but recommended for GPU mesh rasterization.
-pip install git+https://github.com/NVlabs/nvdiffrast.git --no-build-isolation
+uv pip install git+https://github.com/NVlabs/nvdiffrast.git --no-build-isolation
 ```
 
 Create a local environment file if useful:
@@ -63,7 +63,7 @@ Caption JSONL rows are keyed by the same object id used for preprocessed files:
 under `caption.embedding_caption`.
 
 ```bash
-python -m scripts.precompute_object_caption_embeddings \
+uv run python -m scripts.precompute_object_caption_embeddings \
   --caption-jsonl "$CAPTION_JSONL" \
   --out "$CAPTION_EMB_PATH" \
   --model sentence-transformers/all-MiniLM-L6-v2 \
@@ -87,7 +87,7 @@ The main experiments use chair, sofa, and table:
 Build the in-distribution preprocessed set:
 
 ```bash
-python -m scripts.preprocess \
+uv run python -m scripts.preprocess \
   --shapenet_root "$SHAPENET_ROOT" \
   --out_dir "$PREPROC_DIR" \
   --synsets 03001627,04256520,04379243 \
@@ -106,7 +106,7 @@ For no-caption baselines, omit `--caption_emb_path` and train/evaluate with
 Main caption-conditioned discrete policy:
 
 ```bash
-python -m scripts.train \
+uv run python -m scripts.train \
   --shapenet_root "$SHAPENET_ROOT" \
   --preproc_dir "$PREPROC_DIR" \
   --synsets 03001627,04256520,04379243 \
@@ -133,7 +133,7 @@ python -m scripts.train \
 Continuous-action ablation:
 
 ```bash
-python -m scripts.train \
+uv run python -m scripts.train \
   --shapenet_root "$SHAPENET_ROOT" \
   --preproc_dir "$PREPROC_DIR" \
   --synsets 03001627,04256520,04379243 \
@@ -151,7 +151,7 @@ python -m scripts.train \
 No-caption ablation:
 
 ```bash
-python -m scripts.train \
+uv run python -m scripts.train \
   --shapenet_root "$SHAPENET_ROOT" \
   --preproc_dir "$PREPROC_DIR_NO_CAP" \
   --synsets 03001627,04256520,04379243 \
@@ -171,7 +171,7 @@ python -m scripts.train \
 Evaluate learned PPO against non-adaptive baselines:
 
 ```bash
-python -m scripts.evaluate_baselines \
+uv run python -m scripts.evaluate_baselines \
   --shapenet_root "$SHAPENET_ROOT" \
   --preproc_dir "$PREPROC_DIR" \
   --out_dir runs/eval_geoscout_in_dist \
@@ -196,7 +196,7 @@ used to reproduce the aggregate metrics.
 For qualitative trajectories and HTML atlases:
 
 ```bash
-python -m scripts.evaluate_visual_rollouts \
+uv run python -m scripts.evaluate_visual_rollouts \
   --mode run_policy \
   --policy discrete_s1_det \
   --shapenet_root "$SHAPENET_ROOT" \
@@ -215,7 +215,7 @@ python -m scripts.evaluate_visual_rollouts \
 Then build the static HTML atlas:
 
 ```bash
-python -m scripts.evaluate_visual_rollouts \
+uv run python -m scripts.evaluate_visual_rollouts \
   --mode build_report \
   --out_dir runs/visual_rollouts/geoscout \
   --report_workers 8
@@ -224,7 +224,7 @@ python -m scripts.evaluate_visual_rollouts \
 ## 8. Sanity Checks
 
 ```bash
-pytest -q tests/test_voxel_utils.py tests/test_renderer.py tests/test_tensor_env_smoke.py
+uv run pytest -q tests/test_voxel_utils.py tests/test_renderer.py tests/test_tensor_env_smoke.py
 ```
 
 Expected behavior:

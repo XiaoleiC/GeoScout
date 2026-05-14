@@ -8,12 +8,14 @@ trains caption-conditioned RL policies that choose camera viewpoints from a
 partial occupancy belief state, using coarse geometric language as a prior for
 where an unseen object is likely to contain informative structure.
 
-The repository is organized from the root.  There is no nested project folder:
+This repository is managed with **uv** and is organized directly from the repo
+root:
 
 ```text
-geoscout/       core environment, tensorized rollout code, renderers, encoders
+geoscout/       core environment, tensor rollout code, renderers, encoders
 scripts/        preprocessing, training, evaluation, caption, and Modal jobs
 tests/          smoke and unit tests
+pyproject.toml  uv / Python project definition
 REPRODUCE.md    end-to-end reproduction guide
 ```
 
@@ -21,22 +23,36 @@ Large artifacts are intentionally not committed: ShapeNet meshes, preprocessed
 voxel grids, checkpoints, W&B logs, visual atlases, and rollout dumps should
 live outside git.
 
-## Setup
+## Setup With uv
+
+Install uv if it is not already available:
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+Clone the repo and create the managed environment:
 
 ```bash
 git clone git@github.com:XiaoleiC/GeoScout.git
 cd GeoScout
 
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
-pip install -r requirements.txt
+uv python install 3.10
+uv sync --extra dev --extra caption --extra viz --extra cloud
+```
+
+For CUDA training, make sure the PyTorch wheel matches your driver/CUDA stack.
+If you need to override uv's default PyTorch resolution, install the desired
+wheel inside the uv environment, for example:
+
+```bash
+uv pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
 ```
 
 Optional GPU rasterization support:
 
 ```bash
-pip install git+https://github.com/NVlabs/nvdiffrast.git --no-build-isolation
+uv pip install git+https://github.com/NVlabs/nvdiffrast.git --no-build-isolation
 ```
 
 Copy the environment template if you want local paths and logging defaults:
@@ -47,11 +63,13 @@ cp .env.example .env
 
 Never commit `.env`, API keys, checkpoints, datasets, or generated rollouts.
 
-## Quick Smoke Test
+## Sanity Checks
+
+Compile the package and run the lightweight tests through uv:
 
 ```bash
-make compile
-make test
+uv run make compile
+uv run make test
 ```
 
 CUDA-specific tests skip automatically when CUDA is unavailable.  Full training
@@ -62,7 +80,7 @@ and evaluation require a CUDA GPU for practical runtime.
 Precompute caption embeddings:
 
 ```bash
-python -m scripts.precompute_object_caption_embeddings \
+uv run python -m scripts.precompute_object_caption_embeddings \
   --caption-jsonl "$CAPTION_JSONL" \
   --out "$CAPTION_EMB_PATH" \
   --model sentence-transformers/all-MiniLM-L6-v2 \
@@ -72,7 +90,7 @@ python -m scripts.precompute_object_caption_embeddings \
 Preprocess ShapeNet objects:
 
 ```bash
-python -m scripts.preprocess \
+uv run python -m scripts.preprocess \
   --shapenet_root "$SHAPENET_ROOT" \
   --out_dir "$PREPROC_DIR" \
   --synsets 03001627,04256520,04379243 \
@@ -84,7 +102,7 @@ python -m scripts.preprocess \
 Train the main discrete GeoScout policy:
 
 ```bash
-python -m scripts.train \
+uv run python -m scripts.train \
   --shapenet_root "$SHAPENET_ROOT" \
   --preproc_dir "$PREPROC_DIR" \
   --synsets 03001627,04256520,04379243 \
@@ -101,7 +119,7 @@ python -m scripts.train \
 Evaluate against learned and non-adaptive policies:
 
 ```bash
-python -m scripts.evaluate_baselines \
+uv run python -m scripts.evaluate_baselines \
   --shapenet_root "$SHAPENET_ROOT" \
   --preproc_dir "$PREPROC_DIR" \
   --out_dir runs/eval_geoscout \
@@ -114,5 +132,15 @@ python -m scripts.evaluate_baselines \
   --deterministic
 ```
 
-See [REPRODUCE.md](REPRODUCE.md) for the full artifact layout and exact
-experiment commands.
+## Modal Jobs
+
+The cloud entrypoints are also run through uv:
+
+```bash
+uv run modal run scripts/modal_app.py::preprocess
+uv run modal run --detach scripts/modal_app.py::train
+uv run modal run scripts/modal_app.py::evaluate_baselines_shapenet
+```
+
+See [REPRODUCE.md](REPRODUCE.md) for the full artifact layout, dataset
+assumptions, and exact experiment commands.
