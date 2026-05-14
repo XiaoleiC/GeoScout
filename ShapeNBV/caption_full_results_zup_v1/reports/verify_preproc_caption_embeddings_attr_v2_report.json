@@ -1,0 +1,64 @@
+{
+  "bad_dim": [],
+  "caption_emb_norm_max": 1.0000001192092896,
+  "caption_emb_norm_mean": 0.9999999996026357,
+  "caption_emb_norm_min": 0.9999999403953552,
+  "caption_jsonl": "/data/shapenbv_captions/full_attr_600_qwen25_7b_a100_batch64_tok256_array_v2_20260506_corrected.jsonl",
+  "embedding_dim": 384,
+  "embedding_path": "/data/shapenbv_captions/object_caption_embeddings_attr_v2.pt",
+  "examples": [
+    {
+      "caption_emb_norm": 1.0,
+      "caption_emb_shape": [
+        384
+      ],
+      "caption_text": "A chair with single main body, curved shell, distinct seat, backrest, and four or more legs.",
+      "object_id": "03001627_1006be65e7bc937e9141f9b58470d646"
+    },
+    {
+      "caption_emb_norm": 1.0,
+      "caption_emb_shape": [
+        384
+      ],
+      "caption_text": "A chair with single main body, boxy volume, flat horizontal surface, distinct seat, backrest, and armrests. Reconstruction-relevant geometry includes slats and cylindrical parts.",
+      "object_id": "03001627_1007e20d5e811b308351982a6e40cf41"
+    },
+    {
+      "caption_emb_norm": 1.0,
+      "caption_emb_shape": [
+        384
+      ],
+      "caption_text": "A chair with single main body, boxy volume, curved shell, distinct seat, backrest, and armrests.",
+      "object_id": "03001627_100b18376b885f206ae9ad7e32c4139d"
+    },
+    {
+      "caption_emb_norm": 1.0,
+      "caption_emb_shape": [
+        384
+      ],
+      "caption_text": "A chair with single main body, distinct seat, backrest, armrests, and four or more legs.",
+      "object_id": "03001627_1013f70851210a618f2e765c4a8ed3d"
+    },
+    {
+      "caption_emb_norm": 1.0,
+      "caption_emb_shape": [
+        384
+      ],
+      "caption_text": "A chair with single main body, curved shell, distinct seat, backrest, and four or more legs. Reconstruction-relevant geometry includes thin supports and cross braces or bars.",
+      "object_id": "03001627_1015e71a0d21b127de03ab2a27ba7531"
+    }
+  ],
+  "mismatched_emb": [],
+  "mismatched_text": [],
+  "missing_caption_emb": [],
+  "missing_files": [],
+  "num_bad_dim": 0,
+  "num_checked_with_caption_emb": 600,
+  "num_mismatched_emb": 0,
+  "num_mismatched_text": 0,
+  "num_missing_caption_emb": 0,
+  "num_missing_files": 0,
+  "num_requested": 600,
+  "preproc_dir": "/data/shapenbv_preproc_g128_attr_v2",
+  "schema_version": "shapenbv_verify_preproc_caption_embeddings_v1"
+}

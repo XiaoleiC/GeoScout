@@ -1,0 +1,4 @@
+policy=discrete_s1_det n=600
+cr_mean=0.9908 p10=0.9888 p50=0.9912 p90=0.9981 min=0.8201
+success=0.885 steps_mean=17.56 collision=0.000 timeout=0.115
+reward_mean=20.690 fps=520.4 elapsed_s=59.4

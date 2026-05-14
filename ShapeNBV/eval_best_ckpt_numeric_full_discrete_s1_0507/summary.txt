@@ -1,0 +1,5 @@
+ppo            cr_mean=0.9912 p50=0.9914 reach80=1.000 len=16.37 coll=0.000 rew=20.7 nov=0.243 red=0.757 fps=228.4
+axis6          cr_mean=0.9845 p50=0.9902 reach80=1.000 len=27.55 coll=0.000 rew=20.2 nov=0.221 red=0.779 fps=247.7
+random         cr_mean=0.7319 p50=0.8027 reach80=0.503 len=44.31 coll=0.203 rew=12.1 nov=0.537 red=0.440 fps=269.1
+fibonacci      cr_mean=0.9914 p50=0.9912 reach80=1.000 len=21.83 coll=0.000 rew=20.8 nov=0.122 red=0.878 fps=232.9
+ring           cr_mean=0.9802 p50=0.9901 reach80=1.000 len=41.06 coll=0.000 rew=19.8 nov=0.059 red=0.941 fps=244.3

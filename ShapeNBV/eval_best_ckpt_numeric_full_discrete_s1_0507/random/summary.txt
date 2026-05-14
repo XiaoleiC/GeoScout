@@ -1,0 +1,6 @@
+policy=random dataset=shapenet n=600
+cr_mean=0.7319 p50=0.8027 p90=0.9497 max=0.9999
+reach50=0.867 reach80=0.503 reach_threshold=0.020
+ep_len_mean=44.31 collision=0.203 early_stop=0.020 timeout=0.777
+reward=12.1 novelty=0.537 redundancy=0.440 revisit=0.000
+fps=269.1 batch_step_ms=237.79 elapsed_s=105.3

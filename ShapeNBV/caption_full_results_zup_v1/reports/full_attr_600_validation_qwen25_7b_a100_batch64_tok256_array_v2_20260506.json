@@ -1,0 +1,27 @@
+{
+  "appearance_word_flags": 0,
+  "caption_jsonl": "/data/shapenbv_captions/full_attr_600_qwen25_7b_a100_batch64_tok256_array_v2_20260506.jsonl",
+  "category_mismatch": 0,
+  "debug_sheets_written": 600,
+  "duplicate_object_ids": [],
+  "elapsed_s": 848.1428508758545,
+  "empty_final_caption": 0,
+  "json_parse_failures": 0,
+  "manifest_jsonl": "/data/shapenbv_captions/full_attr_600_manifest_qwen25_7b_a100_batch64_tok256_array_v2_20260506.jsonl",
+  "missing_object_ids": [],
+  "needs_manual_review": 15,
+  "num_duplicate_records": 0,
+  "num_manifest": 600,
+  "num_missing": 0,
+  "num_records": 600,
+  "quality_score_histogram": {
+    "2": 15,
+    "3": 585
+  },
+  "render_only": false,
+  "rows_failed_this_run": 0,
+  "rows_skipped_this_run": 0,
+  "rows_written_this_run": 600,
+  "schema_version": "shapenbv_geom_caption_validation_v1",
+  "too_generic": 15
+}

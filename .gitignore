@@ -1,0 +1,307 @@
+# Local assistant / editor state
+.claude/
+.codex
+.vscode/
+.idea/
+.claude
+
+# Local credentials and private environment files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cert
+id_rsa*
+id_ed25519*
+secrets/
+**/secrets/
+modal.toml
+.modal.toml
+wandb_api_key*
+hf_token*
+openai_api_key*
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Python cache and build artifacts
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.hypothesis/
+.nox/
+.tox/
+.coverage
+.coverage.*
+htmlcov/
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
+logs/
+slurm-*.out
+slurm-*.err
+beliefnbv_*.out
+
+# Experiment tracking / training outputs
+wandb/
+mlruns/
+lightning_logs/
+runs/
+tb_logs/
+tensorboard/
+
+# Checkpoints and generated artifacts
+checkpoints/
+checkpoint/
+ckpts/
+artifacts/
+outputs/
+results/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.swp
+*.swo
+
+# Optional large local datasets or caches
+# Uncomment if needed later:
+# data/
+# datasets/
+# cache/
+
+# Local paper PDFs and reading material
+references/*.pdf
+final_project_outline.pdf
+ShapeNBV/final_project_outline.pdf
+
+# External local repos / paper references managed separately
+/baseline/
+# /references/
+/savio_bundle_ready/
+
+# savio_bundle: code is tracked, large data/binaries are not
+savio_bundle/baseline/_vendor/
+savio_bundle/baseline/GenNBV/resources/
+savio_bundle/baseline/GenNBV/assets/
+savio_bundle/baseline/GenNBV/data_gennbv/train/obj/
+savio_bundle/baseline/GenNBV/data_gennbv/train/gt/
+
+# modal_bundle: scripts are tracked, __pycache__ is not
+modal_bundle/__pycache__/
+
+# Local baseline runtime artifacts and downloads
+baseline/_downloads/
+baseline/_vendor/
+baseline/_cuda-home/
+baseline/GenNBV/.venv/
+baseline/GenNBV/.uv-cache/
+baseline/GenNBV/.uv-python/
+baseline/GenNBV/.xdg-cache/
+baseline/GenNBV/.torch-extensions/
+baseline/GenNBV/.mplconfig/
+baseline/GenNBV/.tmp/
+baseline/GenNBV/demo_outputs/
+baseline/GenNBV/data_gennbv/
+
+# belief_nbv local environments, caches, datasets, and generated artifacts
+belief_nbv/.venvs/
+belief_nbv/.uv-cache/
+belief_nbv/.hf-cache/
+belief_nbv/.torch-cache/
+belief_nbv/.xdg-cache/
+belief_nbv/.cache/
+belief_nbv/.mplconfig/
+belief_nbv/data/
+belief_nbv/vggt_outputs/
+belief_nbv/3dgs/outputs/
+belief_nbv/nerf/outputs/
+belief_nbv/pipeline_outputs/
+belief_nbv/vggt_online_runs/
+belief_nbv/vggt_demo/runs/
+belief_nbv/**/__pycache__/
+
+# Generated validation/evaluation artifacts from local and Modal probes.
+validate-*/
+
+# ShapeNBV: track source, scripts, docs, tests, and small text reports only.
+# Generated walkthroughs, visualizations, Modal outputs, checkpoints, caches,
+# rendered images, and binary archives are intentionally kept out of git.
+ShapeNBV/__pycache__/
+ShapeNBV/**/__pycache__/
+ShapeNBV/**/.cache/
+ShapeNBV/**/.mplconfig/
+ShapeNBV/**/.modal/
+ShapeNBV/**/.pytest_cache/
+ShapeNBV/**/.ruff_cache/
+ShapeNBV/**/.uv-cache/
+ShapeNBV/**/.venv/
+ShapeNBV/**/cache/
+ShapeNBV/**/logs/
+ShapeNBV/**/wandb/
+ShapeNBV/**/runs/
+ShapeNBV/**/outputs/
+ShapeNBV/**/checkpoints/
+ShapeNBV/**/checkpoint/
+ShapeNBV/**/ckpts/
+ShapeNBV/*_viz*/
+ShapeNBV/visual_regression_*/
+ShapeNBV/**/*_modal_files/
+ShapeNBV/caption_*_results*/images/
+ShapeNBV/caption_*_results*/diagnostics/
+ShapeNBV/caption_*_results*/contact_sheets*/
+ShapeNBV/tmp_*.py
+ShapeNBV/**/*.png
+ShapeNBV/**/*.jpg
+ShapeNBV/**/*.jpeg
+ShapeNBV/**/*.gif
+ShapeNBV/**/*.mp4
+ShapeNBV/**/*.pdf
+ShapeNBV/**/*.tar
+ShapeNBV/**/*.tar.gz
+ShapeNBV/**/*.tgz
+ShapeNBV/**/*.zip
+ShapeNBV/**/*.gz
+ShapeNBV/**/*.pt
+ShapeNBV/**/*.pth
+ShapeNBV/**/*.ckpt
+ShapeNBV/**/*.checkpoint
+ShapeNBV/**/*.npy
+ShapeNBV/**/*.npz
+ShapeNBV/**/*.obj
+ShapeNBV/**/*.ply
+
+# Per-sample noise from visual eval pipelines (multiple layouts exist):
+# - full eval: eval_*/policies/<policy>/episodes/<seq>/* and eval_*/cases/<seq>/*
+# - selected-cases eval: eval_*/eval_*/episodes/<policy>__<seq>/* and eval_*/eval_*/cases/<seq>/*
+# All contain thousands of small per-sample JSON/CSV files. Aggregated reports/
+# + top-level summary.json/episodes.json/episodes.csv are sufficient.
+ShapeNBV/eval_*/**/episodes/
+ShapeNBV/eval_*/**/cases/
+ShapeNBV/eval_*/**/comparisons/
+
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.gz
+*.fls
+*.fdb_latexmk
+*.listing
+*.nav
+*.snm
+*.vrb
+*.blg
+*.sty
+*.bcf
+*.run.xml
+*.xdv
+*.dvi
+*.ps
+
+# Report figures: ignore the render virtual env and downloaded ShapeNet source
+ShapeNBV/report/figures/.render_venv/
+ShapeNBV/report/figures/assets/wicker_chair_source/
+ShapeNBV/report/figures/assets/wicker_chair_views/
+
+# ShapeNBV paper figure caches. Keep final paper/figure PDFs, PNGs, scripts, and
+# compact aggregate CSV/JSON files; skip downloaded meshes, per-tile renders,
+# raw rollout traces, and W&B output logs that can be regenerated/downloaded.
+ShapeNBV/report/figures/assets/fig3_qualitative/
+ShapeNBV/report/figures/assets/fig4_caption_counterfactual/
+ShapeNBV/report/figures/assets/fig4_caption_swap_probe/
+ShapeNBV/report/figures/assets/fig4_hard_caption_probe/
+ShapeNBV/report/figures/assets/fig4_hard_caption_probe_grid/renders/
+ShapeNBV/report/figures/assets/fig5_coverage_curves/*_all_steps.csv
+ShapeNBV/report/figures/assets/figA1_training_dynamics/wandb_output_logs/
+ShapeNBV/report/figures/fig4_caption_counterfactual*
+ShapeNBV/report/figures/fig4_caption_swap_probe_panel.*
+ShapeNBV/report/figures/make_fig3_tile_prototype.py
+ShapeNBV/report/figures/make_fig4_caption_counterfactual.py
+
+# === Un-ignore overrides (must come AFTER matching ignore rules) ===
+# NeurIPS LaTeX template (overrides top-level *.sty and ShapeNBV/**/*.pdf)
+!ShapeNBV/report/*.sty
+!ShapeNBV/report/*.pdf
+!ShapeNBV/report/figures/*.png
+!ShapeNBV/report/figures/*.pdf
+# Asset PNGs used by figures (overrides ShapeNBV/**/*.png in nested dirs)
+!ShapeNBV/report/figures/assets/*.png
+!ShapeNBV/report/figures/assets/attr_icons/*.png
+!ShapeNBV/report/figures/assets/vlm_icons/*.png
+!ShapeNBV/report/figures/assets/fig4_hard_caption_probe_grid/
+!ShapeNBV/report/figures/assets/fig4_hard_caption_probe_grid/caption_contrast_grid_rollouts.json
+!ShapeNBV/report/figures/assets/fig5_coverage_curves/
+!ShapeNBV/report/figures/assets/fig5_coverage_curves/coverage_curves.csv
+!ShapeNBV/report/figures/assets/fig5_coverage_curves/coverage_curves_meta.json
+!ShapeNBV/report/figures/assets/figA1_training_dynamics/
+!ShapeNBV/report/figures/assets/figA1_training_dynamics/training_dynamics.csv
+!ShapeNBV/report/figures/assets/figA1_training_dynamics/training_dynamics_meta.json
+
+# Re-ignore superseded intermediate composites (must come AFTER un-ignores)
+ShapeNBV/report/figures/assets/chair_contact_sheet.png
+ShapeNBV/report/figures/assets/chair_contact_sheet_clean.png
+ShapeNBV/report/figures/fig4_caption_counterfactual*
+ShapeNBV/report/figures/fig4_caption_swap_probe_panel.*
+ShapeNBV/report/figures/make_fig3_tile_prototype.py
+ShapeNBV/report/figures/make_fig4_caption_counterfactual.py
+ShapeNBV/report/figures/assets/chair_mesh_iso.png
+
+# Report figure scratch previews and stale assets generated while iterating.
+# Keep final figure PDFs/PNGs and assets referenced by TeX; ignore local
+# crops, zooms, obsolete visual alternatives, and mesh-render inputs.
+ShapeNBV/report/figures/*_zoom.png
+ShapeNBV/report/figures/*_full.png
+ShapeNBV/report/figures/*_bottom.png
+ShapeNBV/report/figures/*_bot.png
+ShapeNBV/report/figures/*_preview*.png
+ShapeNBV/report/figures/preview_*.png
+ShapeNBV/report/figures/assets/caption_embedding.png
+ShapeNBV/report/figures/assets/episode_collision_step04.png
+ShapeNBV/report/figures/assets/minilm_arch.png
+ShapeNBV/report/figures/assets/ood_chair_step11.png
+ShapeNBV/report/figures/assets/ood_table_step11.png
+ShapeNBV/report/figures/assets/reward_coverage_curve.png
+ShapeNBV/report/figures/assets/transformer_encoder_block.png
+ShapeNBV/report/figures/assets/vlm_icons/huggingface.png
+ShapeNBV/report/figures/assets/episode_meshes/
+ShapeNBV/report/figures/render_action_history.py
+ShapeNBV/report/figures/render_belief_state.py
+ShapeNBV/report/figures/render_embedding_viz.py
+ShapeNBV/report/figures/render_episode_evolution.py
+ShapeNBV/report/figures/render_minilm_arch.py
+ShapeNBV/report/figures/render_ood_mesh.py
+ShapeNBV/report/figures/render_reward_curve.py
+
+# Summary dashboard / failure-analysis PNGs in eval and caption-judgement
+# reports/ subdirs (overrides ShapeNBV/**/*.png broad block)
+!ShapeNBV/eval_*/reports/*.png
+!ShapeNBV/caption_manual_judgement_*/reports/*.png

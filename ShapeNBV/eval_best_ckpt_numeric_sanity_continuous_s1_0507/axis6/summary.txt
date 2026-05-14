@@ -1,0 +1,6 @@
+policy=axis6 dataset=shapenet n=24
+cr_mean=0.9909 p50=0.9967 p90=0.9980 max=0.9997
+reach50=1.000 reach80=1.000 reach_threshold=0.833
+ep_len_mean=13.00 collision=0.000 early_stop=0.833 timeout=0.167
+reward=20.7 novelty=0.327 redundancy=0.673 revisit=0.000
+fps=312.7 batch_step_ms=76.75 elapsed_s=3.8

@@ -1,0 +1,18 @@
+{
+  "bad_dim_object_ids": [],
+  "caption_emb_norm_max": 1.0000001192092896,
+  "caption_emb_norm_mean": 0.9999999996026357,
+  "caption_emb_norm_min": 0.9999999403953552,
+  "caption_jsonl": "/data/shapenbv_captions/full_attr_600_qwen25_7b_a100_batch64_tok256_array_v2_20260506_corrected.jsonl",
+  "copied_without_caption": 0,
+  "embedding_dim": 384,
+  "embedding_path": "/data/shapenbv_captions/object_caption_embeddings_attr_v2.pt",
+  "num_attached": 600,
+  "num_bad_dim": 0,
+  "num_missing_preproc": 0,
+  "num_requested": 600,
+  "num_skipped_existing": 0,
+  "out_dir": "/data/shapenbv_preproc_g128_attr_v2",
+  "preproc_dir": "/data/shapenbv_preproc_g128",
+  "schema_version": "shapenbv_attach_caption_embeddings_report_v1"
+}

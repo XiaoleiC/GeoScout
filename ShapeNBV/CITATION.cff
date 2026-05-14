@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use GeoScout or ShapeNBV, please cite the project."
+title: "GeoScout: Caption-Conditioned Next-Best-View Policies for Generalizable 3D Reconstruction"
+authors:
+  - family-names: Chu
+    given-names: Xiaolei
+  - family-names: Zhou
+    given-names: Guanren
+year: 2026
+license: MIT

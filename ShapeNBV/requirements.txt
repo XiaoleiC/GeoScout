@@ -1,0 +1,8 @@
+# Core install for local reproduction.
+# For CUDA, install the PyTorch wheel matching your driver first, then run:
+#   pip install -r requirements.txt
+-e .[caption,viz,dev]
+
+# Optional GPU rasterizer used by the fastest training/evaluation path:
+#   pip install git+https://github.com/NVlabs/nvdiffrast.git --no-build-isolation
+
