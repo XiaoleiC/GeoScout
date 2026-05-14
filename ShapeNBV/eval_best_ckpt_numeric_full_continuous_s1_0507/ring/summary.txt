@@ -1,6 +1,0 @@
-policy=ring dataset=shapenet n=600
-cr_mean=0.9800 p50=0.9901 p90=0.9923 max=0.9976
-reach50=1.000 reach80=1.000 reach_threshold=0.540
-ep_len_mean=40.73 collision=0.000 early_stop=0.540 timeout=0.460
-reward=19.8 novelty=0.057 redundancy=0.943 revisit=0.000
-fps=244.0 batch_step_ms=262.27 elapsed_s=105.4

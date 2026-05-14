@@ -1,6 +1,0 @@
-policy=ppo dataset=shapenet n=24
-cr_mean=0.9934 p50=0.9918 p90=0.9980 max=0.9986
-reach50=1.000 reach80=1.000 reach_threshold=1.000
-ep_len_mean=12.38 collision=0.000 early_stop=1.000 timeout=0.000
-reward=20.9 novelty=0.195 redundancy=0.805 revisit=0.000
-fps=202.5 batch_step_ms=118.51 elapsed_s=4.0

@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "geoscout"
+version = "0.1.0"
+description = "Caption-conditioned next-best-view policies for object-centric 3D reconstruction."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "Xiaolei Chu" },
+  { name = "Guanren Zhou" },
+]
+dependencies = [
+  "numpy>=1.24",
+  "scipy>=1.10",
+  "torch>=2.2",
+  "trimesh>=4.0",
+  "matplotlib>=3.7",
+  "pillow>=10",
+  "tqdm>=4.66",
+  "gymnasium>=0.29,<1.0",
+  "stable-baselines3==2.3.2",
+]
+
+[project.optional-dependencies]
+caption = [
+  "sentence-transformers==3.0.1",
+  "transformers>=4.44",
+]
+viz = [
+  "pandas>=2.0",
+  "seaborn>=0.13",
+]
+cloud = [
+  "modal>=0.64",
+  "wandb>=0.16",
+  "huggingface_hub[hf_transfer]>=0.24",
+]
+dev = [
+  "pytest>=8",
+  "ruff>=0.5",
+]
+
+[tool.setuptools]
+packages = ["geoscout", "scripts"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

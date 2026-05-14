@@ -1,2 +1,0 @@
-ppo            cr_mean=0.9934 p50=0.9918 reach80=1.000 len=12.38 coll=0.000 rew=20.9 nov=0.195 red=0.805 fps=202.5
-axis6          cr_mean=0.9909 p50=0.9967 reach80=1.000 len=13.00 coll=0.000 rew=20.7 nov=0.327 red=0.673 fps=312.7

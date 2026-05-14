@@ -1,6 +1,0 @@
-policy=fibonacci dataset=shapenet n=600
-cr_mean=0.9911 p50=0.9912 p90=0.9938 max=0.9997
-reach50=1.000 reach80=1.000 reach_threshold=0.983
-ep_len_mean=21.70 collision=0.000 early_stop=0.983 timeout=0.017
-reward=20.8 novelty=0.121 redundancy=0.879 revisit=0.000
-fps=231.8 batch_step_ms=276.06 elapsed_s=59.6
